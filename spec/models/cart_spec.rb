@@ -32,9 +32,6 @@ RSpec.describe Cart, type: :model do
       expect(cart.items.first.product).to be_a   Product
     end
 
-    it "every cart item can be calculated its own gross amount" do
-    end
-
     it "is able to calculate the total amount of the shopping cart" do
     end
 
