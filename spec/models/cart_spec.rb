@@ -33,6 +33,16 @@ RSpec.describe Cart, type: :model do
     end
 
     it "is able to calculate the total amount of the shopping cart" do
+      cart = Cart.new
+      p1 = Product.create(title: "title1", price: 80)
+      p2 = Product.create(title: "title2", price: 200)
+
+      3.times {
+        cart.add_item(p1.id)
+        cart.add_item(p2.id)
+      }
+
+      expect(cart.total_price).to be 840
     end
 
     it "is able to have special discount" do
