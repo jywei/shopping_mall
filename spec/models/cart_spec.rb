@@ -20,6 +20,16 @@ RSpec.describe Cart, type: :model do
     end
 
     it "an item is able to be added or cancelled in the shopping cart" do
+      cart = Cart.new
+      p1 = Product.create(title: "title1")
+      p2 = Product.create(title: "title2")
+
+      4.times { cart.add_item(p1.id) }
+      2.times { cart.add_item(p2.id) }
+
+      expect(cart.items.first.product_id).to be  p1.id
+      expect(cart.items.second.product_id).to be p2.id
+      expect(cart.items.first.product).to be_a   Product
     end
 
     it "every cart item can be calculated its own gross amount" do
